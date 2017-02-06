@@ -30,7 +30,6 @@ ALLOWED_HOSTS = []
 
 # Application definition
 THIRD_APPS = ['rest_framework',
-              'corsheaders',
               'django_filters']
 
 PROJECT_APPS = ['tasks',]
@@ -73,20 +72,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'app.wsgi.application'
-
-CORS_ORIGIN_ALLOW_ALL = True
-
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
