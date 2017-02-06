@@ -8,7 +8,7 @@ export default class App extends Component {
       <div className='container'>
         <h1>App</h1>
         <ul>
-          <li><Link to='/admin'>Admin</Link></li>
+          <li><Link to='/'>Login</Link></li>
           <li><Link to='/tasks'>Tasks</Link></li>
         </ul>
         <Grid>
