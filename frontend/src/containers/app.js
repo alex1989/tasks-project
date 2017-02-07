@@ -1,16 +1,31 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router'
-import { Grid } from 'react-bootstrap';
+import React, { Component } from 'react';
+import { LinkContainer } from 'react-router-bootstrap';
+import { Grid, Navbar, Nav, NavItem } from 'react-bootstrap';
 
 export default class App extends Component {
   render() {
     return (
-      <div className='container'>
-        <h1>App</h1>
-        <ul>
-          <li><Link to='/'>Login</Link></li>
-          <li><Link to='/tasks'>Tasks</Link></li>
-        </ul>
+      <div>
+        <Navbar collapseOnSelect>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="/">Task Application</a>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav>
+              <LinkContainer to="/tasks">
+                <NavItem>Tasks</NavItem>
+              </LinkContainer>
+            </Nav>
+            <Nav pullRight>
+              <LinkContainer to="/">
+                <NavItem>Login</NavItem>
+              </LinkContainer>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
         <Grid>
           {this.props.children}
         </Grid>
@@ -18,3 +33,6 @@ export default class App extends Component {
     )
   }
 }
+
+// <Link to='/tasks'></Link>
+// <Link to='/'></Link>
