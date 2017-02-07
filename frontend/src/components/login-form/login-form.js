@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 import userApi from '../../actions/users';
+import getCookie from '../../actions/ajaxPromise';
 import { browserHistory } from 'react-router';
+
 
 export default class LoginForm extends Component {
   constructor(params) {
@@ -21,8 +23,15 @@ export default class LoginForm extends Component {
     const {username, password} = this.state;
     userApi.loginUser({username, password})
             .then((res) => {
-              browserHistory.push('/tasks');
+              if (getCookie('sessionid')) {
+                browserHistory.push('/tasks');
+              }
             })
+            .catch((error) => {
+              if (error.status === 401) {
+                console.log('error', error);
+              }
+            });
   }
 
   render() {

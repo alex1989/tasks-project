@@ -29,6 +29,6 @@ export default(params)=> {
     }
   });
   return new Promise(function(resolve, reject) {
-    $.ajax({...params}).done(resolve).fail(reject);
+    $.ajax({...params}).done((data, status, xhr) => { resolve({status: status, data: data, xhr: xhr}); }).fail(reject);
   })
 }

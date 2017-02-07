@@ -22,7 +22,7 @@ export default class TaskContainer extends Component {
     fetchTaskList(complete) {
         tasksApi.getTaskList({complete})
             .then((res) => {
-                this.setState(Object.assign({}, this.state, { tasks: res,
+                this.setState(Object.assign({}, this.state, { tasks: res.data,
                                                               complete: complete }));
 
             })

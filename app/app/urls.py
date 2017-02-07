@@ -27,6 +27,6 @@ api_pattern = [
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(api_pattern)),
-    url(r'$', TemplateView.as_view(template_name="start_page.html")),
+    url(r'^$', TemplateView.as_view(template_name="start_page.html")),
 ]
 
